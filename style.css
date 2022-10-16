@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  /** Colors */
+
+  /*? Primary */
+
+  --darkCyan: 158 36% 37%;
+  --cream: 30 38% 92%;
+
+  /*? Neutral */
+
+  --blackBlue: 212 21% 14%;
+  --grayBlue: 228 12% 48%;
+  --white: 0 0% 100;
+
+  /** Typography */
+  --headingFont: "Fraunces", serif;
+  --bodyFont: "Montserrat", sans-serif;
+  --bodyFontSize: 1.4rem;
+}
+
+::selection {
+  background: hsl(var(--darkCyan));
+  color: hsl(var(--cream));
+}
+::-moz-selection {
+  background: hsl(var(--darkCyan));
+  color: hsl(var(--cream));
+}
+
+body {
+  font-family: var(--bodyFont);
+  font-size: var(--bodyFontSize);
+  color: hsl(var(--blackBlue));
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h1,
+h2,
+h3,
+h4,
+.heading {
+  font-family: var(--headingFont);
+}
+button,
+button:hover,
+button:focus,
+button:focus-visible {
+  all: unset;
+  font: inherit;
+  color: currentColor;
+}
+button:hover {
+  cursor: pointer;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 0.4rem solid hsl(var(--blackBlue));
+}
+a {
+  font: var(--headingFont);
+  text-decoration-color: hsl(var(--darkCyan));
+  -moz-text-decoration-color: hsl(var(--darkCyan));
+}
+a:hover {
+  text-decoration: none;
+}
+
+img,
+button {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+main {
+  background-color: hsl(var(--cream));
+  width: clamp(1000px, 30vw, 1440px);
+  box-shadow: 2px 5px 10px 2px hsl(var(--blackBlue) / 0.5);
+  -webkit-box-shadow: 2px 5px 10px 2px hsl(var(--blackBlue) / 0.5);
+  -moz-box-shadow: 2px 5px 10px 2px hsl(var(--blackBlue) / 0.5);
+  border-radius: 2rem;
+  overflow: hidden;
+  max-height: 450px;
+  min-height: 400px;
+  max-width: 55rem;
+}
+@media (max-width: 1000px) {
+  main {
+    width: clamp(800px, 65vw, 1000px);
+  }
+}
+@media (max-width: 800px) {
+  main {
+    width: clamp(500px, 75vw, 800px);
+  }
+}
+@media (max-width: 500px) {
+  main {
+    width: 90vw;
+  }
+}
+.container {
+  height: 100%;
+  display: flex;
+  gap: 3rem;
+}
+.container > * {
+  flex: 1 1 50%;
+}
+
+.product > img {
+  width: 100%;
+  height: 100%;
+}
+
+.details {
+  padding: 3rem 3rem 2rem 0;
+}
+.category {
+  color: hsl(var(--grayBlue) / 0.5);
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 1ch;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h1.name {
+  font-size: clamp(2.8rem, 1.8vw + 1rem, 3.4rem);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.1rem;
+}
+
+p.description {
+  font-size: clamp(1.2rem, 0.8vw + 1rem, 1.6rem);
+  margin-bottom: 2.5rem;
+  line-height: 1.4;
+  color: hsl(var(--grayBlue));
+}
+.price {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.finalPrice {
+  font-size: clamp(2rem, 1.8vw + 1rem, 3rem);
+  color: hsl(var(--darkCyan));
+  font-family: var(--headingFont);
+}
+.ogPrice {
+  font-size: clamp(1.4rem, 0.8vw + 1rem, 1.6rem);
+  color: hsl(var(--grayBlue) / 0.8);
+}
+.addCart,
+.addCart:hover,
+.addCart:focus,
+.addCart:focus-visible,
+.addCart:focus-within {
+  width: 100%;
+  background-color: hsl(var(--darkCyan));
+  padding: 1.3rem 0;
+  border-radius: 0.5em;
+  text-align: center;
+  color: hsl(var(--cream));
+}
+.addCart:hover,
+.addCart:focus-visible {
+  --darkCyan: 158 36% 30%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+}
