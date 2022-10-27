@@ -17,3 +17,7 @@
 
 #Avoid Design FIles
 design/
+
+#Avoid readme and style guide files
+README-og.md
+style-guide.md

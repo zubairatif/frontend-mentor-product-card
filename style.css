@@ -1,36 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap");
 
+/** -------- GLOBAL START -----------  */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: inherit;
+}
+html,
+body {
+  height: 100%;
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /** Setting 1rem to 10px */
 }
 
 :root {
-  /** Colors */
-
-  /*? Primary */
-
+  /** Colors  in HSL()*/
   --darkCyan: 158 36% 37%;
   --cream: 30 38% 92%;
-
-  /*? Neutral */
-
   --blackBlue: 212 21% 14%;
   --grayBlue: 228 12% 48%;
-  --white: 0 0% 100;
-
   /** Typography */
   --headingFont: "Fraunces", serif;
   --bodyFont: "Montserrat", sans-serif;
-  --bodyFontSize: 1.4rem;
 }
-
+/** Highlighted text colour  */
 ::selection {
   background: hsl(var(--darkCyan));
   color: hsl(var(--cream));
@@ -39,13 +34,11 @@ html {
   background: hsl(var(--darkCyan));
   color: hsl(var(--cream));
 }
-
+/** Defaults on body, centering everything  */
 body {
   font-family: var(--bodyFont);
-  font-size: var(--bodyFontSize);
-  color: hsl(var(--blackBlue));
-  width: 100%;
-  height: 100vh;
+  color: hsl(var(--grayBlue)); /** Light Black for body text*/
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,205 +47,177 @@ body {
 h1,
 h2,
 h3,
-h4,
-.heading {
+h4 {
   font-family: var(--headingFont);
+  color: hsl(var(--blackBlue)); /** Dark Black for body text*/
 }
-button,
-button:hover,
-button:focus,
-button:focus-visible {
-  all: unset;
+/** Some custom resetting */
+a,
+button {
+  color: inherit;
   font: inherit;
-  color: currentColor;
 }
-button:hover {
-  cursor: pointer;
-}
-button:focus-visible,
-a:focus-visible {
-  outline: 0.4rem solid hsl(var(--blackBlue));
-}
-a {
-  font: var(--headingFont);
-  text-decoration-color: hsl(var(--darkCyan));
-  -moz-text-decoration-color: hsl(var(--darkCyan));
-}
-a:hover {
+a:hover,
+a:focus {
   text-decoration: none;
 }
-
-.img,
-button {
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
+img {
+  display: block;
+  max-width: 100%;
 }
+/** -------- GLOBAL END -----------  */
 
+/** Medium screen and small screens below 750 Pixels  */
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 90vw;
   background-color: hsl(var(--cream));
-  width: clamp(1000px, 30vw, 1440px);
   box-shadow: 2px 5px 10px 2px hsl(var(--blackBlue) / 0.5);
   -webkit-box-shadow: 2px 5px 10px 2px hsl(var(--blackBlue) / 0.5);
   -moz-box-shadow: 2px 5px 10px 2px hsl(var(--blackBlue) / 0.5);
   border-radius: 2rem;
-  overflow: hidden;
-  min-height: 400px;
-  max-width: 55rem;
+  min-height: max-content;
 }
 
-.container {
-  height: 100%;
-  display: flex;
-  gap: 3rem;
-}
-
-.product > .img {
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url("images/image-product-desktop.jpg");
-  width: 100%;
-  height: 100%;
-}
-.product {
-  flex: 1 1 calc(50% + 3rem);
-}
-
-.details {
-  padding: 3rem 3rem 2rem 0;
+/** Two childs of main*/
+picture {
   flex: 1 1 50%;
-}
-.category {
-  color: hsl(var(--grayBlue) / 0.5);
   display: block;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  letter-spacing: 1ch;
-  margin-bottom: 1rem;
+  border-radius: 2rem 2rem 0 0;
+  overflow: hidden;
+}
+.details {
+  flex: 1 1 50%;
+  padding: 2rem 2rem;
+}
+/** ------- MAIN END ---------- */
+
+/** The category of product on top of h1.name */
+.category {
+  display: block;
+  font-size: clamp(1.4rem, 1.8vw + 1rem, 2rem);
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  color: hsl(var(--darkCyan) / 0.8);
+  margin-block-end: 0.5em;
 }
-
-h1.name {
-  font-size: clamp(2.8rem, 1.7vw + 1rem, 3.4rem);
-  margin-bottom: 2.5rem;
-  letter-spacing: 0.1rem;
+/** Title/name of product  */
+h1 {
+  font-size: clamp(2rem, 6vw + 1rem, 4rem);
+  margin-block-end: 1.5rem;
+  line-height: 1.1;
 }
-
-p.description {
-  font-size: clamp(1.2rem, 0.8vw + 1rem, 1.6rem);
-  margin-bottom: 2.5rem;
-  line-height: 1.4;
-  color: hsl(var(--grayBlue));
+/** the paragraph (description) below h1.name */
+.description {
+  font-size: clamp(1.8rem, 2vw + 1rem, 2.3rem);
+  margin-block-end: 1em;
+  line-height: 1.5;
 }
+/** Container of old and discounted price */
 .price {
-  margin-bottom: 2rem;
+  /*/ A div*/
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 2em;
+  margin-block-end: 2rem;
 }
 .finalPrice {
-  font-size: clamp(2rem, 1.5vw + 1rem, 2.8rem);
-  color: hsl(var(--darkCyan));
   font-family: var(--headingFont);
+  font-size: clamp(4rem, 7vw + 1rem, 4.5rem);
+  color: hsl(var(--darkCyan));
 }
 .ogPrice {
-  font-size: clamp(1.4rem, 0.8vw + 1rem, 1.6rem);
-  color: hsl(var(--grayBlue) / 0.8);
+  font-size: 2.6rem;
 }
-.addCart,
-.addCart:hover,
-.addCart:focus,
-.addCart:focus-visible,
-.addCart:focus-within {
+/** -------- Price End -------- */
+/** Button (Add to Cart) */
+.addCart {
+  font-size: 2rem;
+  font-weight: 700;
+  padding-block: 1em;
+  border: none;
+  border-radius: 1rem;
   width: 100%;
-  background-color: hsl(var(--darkCyan));
-  padding: 1.3rem 0;
-  border-radius: 0.5em;
-  text-align: center;
   color: hsl(var(--cream));
+  background-color: hsl(var(--darkCyan));
 }
-.addCart:hover,
-.addCart:focus-visible {
-  --darkCyan: 158 36% 30%;
+.buttonIcon {
+  margin-inline-end: 0.5em;
 }
-.cartIcon {
-  margin-inline-end: 1rem;
+/** Hover animation only on devices that support it */
+@media (any-hover: hover) and (pointer: fine) {
+  .addCart:hover {
+    --darkCyan: 158 36% 30%;
+    cursor: pointer;
+  }
 }
-
+/** ------------ Button End ----------- */
+/** Credits in foooter */
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  margin: 1rem 0;
+  padding: 1rem;
   text-align: center;
+  font-size: 1.8rem;
 }
 
-@media (max-width: 1000px) {
-  main {
-    width: clamp(800px, 65vw, 1000px);
-  }
-}
-@media (max-width: 800px) {
-  main {
-    width: clamp(600px, 50vw, 800px);
-  }
-}
-
-@media (max-height: 500px) {
-  footer {
-    position: static;
-    margin-top: 3rem;
-  }
-}
-@media (max-width: 600px) {
-  html {
-    font-size: 62.5%;
-  }
+/** --------- Below 750px medium+small END ---------- */
+/** Some slight adjustments for Smaller sizes */
+@media screen and (max-width: 350px) {
   body {
-    height: fit-content;
-    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   main {
-    margin: 3rem 0;
-    height: fit-content;
-    width: 90vw;
+    margin-block-start: 50px;
   }
-  .container {
-    height: 100%;
+  .price {
     flex-direction: column;
-    gap: 0;
+    gap: 5px;
+    margin-block-end: 15px;
   }
-  .product {
-    min-height: 200px;
-    flex: 1 1 50%;
-    width: 100%;
+  .finalPrice {
+    font-size: 2.6rem;
   }
-  .product > .img {
-    min-height: 200px;
-    width: 100%;
-    background-image: url("images/image-product-mobile.jpg");
-  }
-  .details {
-    flex: 1 1 50%;
-    padding: 3rem 4rem;
-  }
-  .category {
-    font-size: 1.4rem;
+  .ogPrice {
+    font-size: 1.8rem;
   }
   h1.name {
-    font-size: clamp(2.6rem, 3.5vw + 1rem, 4rem);
+    font-size: 2.6rem;
+    margin-block-end: 10px;
   }
-  p.description,
-  .addCart,
-  .addCart:hover,
-  .addCart:focus,
-  .addCart:focus-visible,
-  .addCart:focus-within {
-    font-size: clamp(1.6rem, 1.4vw + 1rem, 1.8rem);
+}
+/** ------- 350px End --------- */
+
+
+/** ------------------- Styles For desktop -------------  */
+@media screen and (min-width: 750px) {
+  main {
+    flex-direction: row;
+    align-items: center;
   }
-  footer {
-    position: static;
+  picture {
+    border-radius: 2rem 0 0 2rem;
+    height: 100%;
+  }
+  h1.name {
+    font-size: clamp(3.2rem, 3.4rem, 3.6rem);
+  }
+  p.description {
+    font-size: 1.8rem;
+  }
+  .finalPrice {
+    font-size: 3.8rem;
+  }
+  .ogPrice {
+    font-size: 2.2rem;
+  }
+  main {
+    max-width: 700px;
   }
 }
