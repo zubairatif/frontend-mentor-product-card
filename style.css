@@ -234,7 +234,7 @@ footer {
   }
 }
 /** ------ Styles for Large Screens --------- */
-@media (min-width: 1400px) {
+@media (min-width: 1400px) and (min-height: 900px) {
   main {
     max-width: 1000px;
   }
