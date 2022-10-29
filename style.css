@@ -233,3 +233,28 @@ footer {
     max-width: 700px;
   }
 }
+/** ------ Styles for Large Screens --------- */
+@media (min-width: 1400px) {
+  main {
+    max-width: 1000px;
+  }
+  .category,
+  p.description,
+  .ogPrice,
+  .addCart {
+    font-size: 2.4rem;
+  }
+  p.description {
+    margin-block-end: 1em;
+  }
+  h1.name {
+    font-size: clamp(3.8rem, 4.4rem, 5.2rem);
+    margin-block-end: 0.5em;
+  }
+  .finalPrice {
+    font-size: 5rem;
+  }
+  .price {
+    margin-block-end: 3rem;
+  }
+}
