@@ -64,6 +64,7 @@ a:focus {
 img {
   display: block;
   max-width: 100%;
+  height: 100%;
 }
 /** -------- GLOBAL END -----------  */
 
@@ -194,8 +195,19 @@ footer {
 }
 /** ------- 350px End --------- */
 
-
-/** ------------------- Styles For desktop -------------  */
+@media screen and (min-width: 550px) {
+  main {
+    max-width: min(85vw, 500px);
+  }
+  h1.name {
+    font-size: 3.4rem;
+    margin-block-end: 0.2em;
+  }
+  .finalPrice {
+    font-size: 4rem;
+  }
+}
+/** ------- Styles For desktop -------  */
 @media screen and (min-width: 750px) {
   main {
     flex-direction: row;
@@ -206,16 +218,16 @@ footer {
     height: 100%;
   }
   h1.name {
-    font-size: clamp(3.2rem, 3.4rem, 3.6rem);
+    font-size: clamp(2.8rem, 3rem, 3.2rem);
   }
   p.description {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
   .finalPrice {
-    font-size: 3.8rem;
+    font-size: 3.4rem;
   }
   .ogPrice {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
   }
   main {
     max-width: 700px;
